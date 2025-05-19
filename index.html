@@ -206,8 +206,10 @@
 
     <div class="contact">
       <h2>CONTACT</h2>
-       <a href="#" id="openEmailForm">Email</a>
-      <a href="https://wa.me/+38640603639" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+       <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jovicpetarteam@gmail.com" target="_blank" rel="noopener noreferrer">
+    jovicpetarteam@gmail.com
+  </a>
+      <a href="https://wa.me/+38640603639" target="_blank" rel="noopener noreferrer">Best way WhatsApp</a>
     </div>
   </div>
 
@@ -223,73 +225,7 @@
       });
     });
   </script>
-  <div id="emailModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); 
-    justify-content:center; align-items:center; z-index: 1000;">
-  <div style="background:#1b1b1b; padding:30px; border-radius:5px; width:90%; max-width:400px; color:#ddd; position:relative; box-shadow: 0 0 20px #b22222;">
-    <button id="closeModal" style="position:absolute; top:10px; right:10px; background:none; border:none; color:#b22222; font-size:24px; cursor:pointer;">×</button>
-    <h2>Pošalji poruku</h2>
-    <form id="contactForm">
-      <label for="email">jovicpetarteam@gmail.com:</label><br />
-      <input type="email" id="email" name="email" required style="width:100%; padding:8px; margin-bottom:12px; background:#121212; border:1px solid #b22222; color:#ddd;" /><br />
-      <label for="message">Message:</label><br />
-      <textarea id="message" name="message" required rows="5" style="width:100%; padding:8px; background:#121212; border:1px solid #b22222; color:#ddd;"></textarea><br />
-      <button type="submit" style="background:#b22222; color:#fff; padding:10px 20px; border:none; cursor:pointer; border-radius:3px;">Pošalji</button>
-    </form>
-    <div id="formResponse" style="margin-top:15px;"></div>
-  </div>
-</div>
-  <script>
-    const openBtn = document.getElementById('openEmailForm');
-const modal = document.getElementById('emailModal');
-const closeBtn = document.getElementById('closeModal');
-const form = document.getElementById('contactForm');
-const responseDiv = document.getElementById('formResponse');
-
-openBtn.onclick = e => {
-  e.preventDefault();
-  modal.style.display = 'flex';
-  responseDiv.textContent = '';
-  form.reset();
-};
-
-closeBtn.onclick = () => {
-  modal.style.display = 'none';
-};
-
-// zatvaranje kliktanjem izvan modala
-modal.onclick = e => {
-  if (e.target === modal) modal.style.display = 'none';
-};
-
-form.onsubmit = async e => {
-  e.preventDefault();
-  responseDiv.style.color = '#b22222';
-  responseDiv.textContent = 'Šaljem...';
-
-  const data = new FormData(form);
-
-  try {
-    const res = await fetch('sendmail.php', {
-      method: 'POST',
-      body: data
-    });
-
-    const text = await res.text();
-
-    if (res.ok) {
-      responseDiv.style.color = '#4CAF50';
-      responseDiv.textContent = 'Poruka poslata! Hvala.';
-      form.reset();
-    } else {
-      responseDiv.style.color = '#f44336';
-      responseDiv.textContent = 'Greška pri slanju: ' + text;
-    }
-  } catch (err) {
-    responseDiv.style.color = '#f44336';
-    responseDiv.textContent = 'Error, try to send email to : jovicpetarteam@gmail.com' + err.message;
-  }
-};
-  </script>
+ 
 </body>
 </html>
 
