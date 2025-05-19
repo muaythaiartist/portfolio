@@ -1,24 +1,81 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 40px;
-      background: #f4f4f4;
-    }
-    h1 {
-      color: #333;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Petar Jovic – Portfolio</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    background: #f9f9f9;
+    color: #222;
+  }
+  h1, h2 {
+    border-bottom: 2px solid #4caf50;
+    padding-bottom: 5px;
+  }
+  a {
+    color: #4caf50;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .project {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+  .project img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+  .contact {
+    margin-top: 40px;
+    font-size: 0.9em;
+  }
+</style>
 </head>
 <body>
-  <h1>Ćao! Ja sam Web Dizajner</h1>
-  <p>Dobrodošli na moj portfolio. Ovdje će biti prikazani moji projekti.</p>
+
+<h1>Petar Jovic</h1>
+<p>Web designer & developer | Webflow | HTML & CSS | Responsive sites</p>
+
+<section>
+  <h2>O meni</h2>
+  <p>Strastveni web dizajner sa fokusom na izradu brzih i modernih sajtova.  
+  Specijalizovan za Webflow i statički kod. Otvoren za freelance projekte.</p>
+</section>
+
+<section>
+  <h2>Projekti</h2>
+
+  <div class="project">
+    <h3><a href="https://muaythaiartist.github.io/muaythai-camp" target="_blank">Muay Thai Kamp Tajland</a></h3>
+    <p>Landing page za sportski kamp, urađen u Webflow, eksportovan kao statički HTML/CSS.</p>
+    <img src="muaythai-camp.png" alt="Muay Thai Kamp Tajland Screenshot" />
+  </div>
+
+  <div class="project">
+    <h3><a href="https://muaythaiartist.github.io/portfolio" target="_blank">Lični Portfolio</a></h3>
+    <p>Moj lični portfolio sa prikazom projekata i kontaktnim informacijama.</p>
+    <img src="portfolio-screenshot.png" alt="Portfolio Screenshot" />
+  </div>
+
+</section>
+
+<section class="contact">
+  <h2>Kontakt</h2>
+  <p>Email: <a href="mailto:petar@email.com">jovicpetarteam@email.com</a></p>
+  <p>GitHub: <a href="https://github.com/muaythaiartist" target="_blank">github.com/muaythaiartist</a></p>
+</section>
+
 </body>
 </html>
 
