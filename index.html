@@ -6,6 +6,10 @@
   <title>Linux & Web Development guy</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&family=Roboto:wght@700&display=swap');
+    
+    body {
+  cursor: url('glove.png'), auto; /* Pretpostavimo da si sliku nazvao glove.png */
+}
     body {
       margin: 0; padding: 20px;
       background-color: #121212;
@@ -167,6 +171,8 @@
   </style>
 </head>
 <body>
+  <audio id="punch-sound" src="punch.mp3" preload="auto"></audio>
+
   <div class="container">
     <header>
       <h1>PETAR JOVIĆ</h1>
@@ -224,7 +230,34 @@
       });
     });
   </script>
- 
+  <script>
+  const punch = document.getElementById('punch-sound');
+
+  document.body.addEventListener('click', e => {
+    punch.currentTime = 0;
+    punch.play();
+
+    const glove = document.createElement('div');
+    glove.innerText = '🥊';
+    glove.style.position = 'absolute';
+    glove.style.left = e.pageX + 'px';
+    glove.style.top = e.pageY + 'px';
+    glove.style.fontSize = '40px';
+    glove.style.animation = 'punchAnim 0.4s ease-out forwards';
+    document.body.appendChild(glove);
+
+    setTimeout(() => glove.remove(), 400);
+  });
+
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @keyframes punchAnim {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+  `;
+  document.head.appendChild(style);
+</script>
 </body>
 </html>
 
