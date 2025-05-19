@@ -20,7 +20,7 @@ $headers = "From: jovicpetarteam@gmail.com\r\n";
 $headers .= "Reply-To: $email\r\n";
 
 if (mail($to, $subject, $body, $headers)) {
-    http_response_code(200);
+    http_response_code(3);
     echo 'Uspešno poslato.';
 } else {
     http_response_code(500);
