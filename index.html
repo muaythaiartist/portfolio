@@ -1,81 +1,228 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Petar Jovic – Portfolio</title>
-<style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
-    background: #f9f9f9;
-    color: #222;
-  }
-  h1, h2 {
-    border-bottom: 2px solid #4caf50;
-    padding-bottom: 5px;
-  }
-  a {
-    color: #4caf50;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-  .project {
-    margin-bottom: 20px;
-    padding: 15px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-  }
-  .project img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 6px;
-  }
-  .contact {
-    margin-top: 40px;
-    font-size: 0.9em;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Linux & Web Development guy</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&family=Roboto:wght@700&display=swap');
+    body {
+      margin: 0; padding: 20px;
+      background-color: #121212;
+      color: #ddd;
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      align-items: flex-start;
+    }
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background-color: #1b1b1b;
+      box-shadow: 0 0 20px #b22222cc;
+      padding: 40px 50px;
+      border-radius: 4px;
+      border: 2px solid #b22222;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    header h1 {
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 700;
+      font-size: 3rem;
+      letter-spacing: 3px;
+      color: #b22222;
+      margin: 0;
+      text-transform: uppercase;
+      user-select: none;
+    }
+    header p {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #aaa;
+      margin-top: 8px;
+      letter-spacing: 1.2px;
+      user-select: none;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+      user-select: none;
+    }
+    .tab {
+      padding: 14px 30px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #b22222;
+      background: transparent;
+      border: 2px solid #b22222;
+      cursor: pointer;
+      transition: background-color 0.2s, color 0.2s;
+      text-transform: uppercase;
+      border-radius: 2px;
+      letter-spacing: 1px;
+    }
+    .tab:hover {
+      background-color: #b22222;
+      color: #121212;
+      box-shadow: 0 0 12px #b22222aa;
+    }
+    .tab.active {
+      background-color: #b22222;
+      color: #121212;
+      box-shadow: 0 0 18px #b22222cc;
+      pointer-events: none;
+    }
+    section {
+      display: none;
+      line-height: 1.6;
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+    section.active {
+      display: block;
+      animation: fadeIn 0.4s ease forwards;
+    }
+    h2 {
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #b22222;
+      border-bottom: 3px solid #b22222;
+      padding-bottom: 8px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      user-select: none;
+    }
+    ul {
+      padding-left: 20px;
+      list-style-type: square;
+    }
+    ul li {
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+    .contact {
+      margin-top: 50px;
+      text-align: center;
+      border-top: 2px solid #b22222;
+      padding-top: 30px;
+      color: #b22222;
+      user-select: none;
+    }
+    .contact h2 {
+      margin-bottom: 20px;
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+    .contact a {
+      display: inline-block;
+      margin: 0 18px;
+      padding: 12px 28px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #121212;
+      background-color: #b22222;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      letter-spacing: 1px;
+      user-select: text;
+    }
+    .contact a:hover {
+      background-color: #7a1616;
+      box-shadow: 0 0 15px #7a1616aa;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 30px 25px;
+      }
+      header h1 {
+        font-size: 2.3rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .tab {
+        font-size: 1rem;
+        padding: 12px 20px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <header>
+      <h1>PETAR JOVIC</h1>
+      <p>LINUX ADMINISTRATOR & WEB DEVELOPER</p>
+    </header>
 
-<h1>Petar Jovic</h1>
-<p>Web designer & developer | Webflow | HTML & CSS | Responsive sites</p>
+    <div class="tabs">
+      <div class="tab active" data-tab="linux">Linux Maintenance</div>
+      <div class="tab" data-tab="web">Web Development</div>
+    </div>
 
-<section>
-  <h2>O meni</h2>
-  <p>Strastveni web dizajner sa fokusom na izradu brzih i modernih sajtova.  
-  Specijalizovan za Webflow i statički kod. Otvoren za freelance projekte.</p>
-</section>
+    <section id="linux" class="active">
+      <h2>LINUX MAINTENANCE, DEPLOYMENT & AUTOMATION</h2>
+      <ul>
+        <li>Installation, configuration, and management of Linux servers (Ubuntu, CentOS, Debian).</li>
+        <li>Deploy applications (PHP, Node.js, Python) focusing on stability and scalability.</li>
+        <li>Automate tasks using Bash scripts and cron jobs for backups and monitoring.</li>
+        <li>Manage MySQL and PostgreSQL databases, backups, and performance optimization.</li>
+        <li>Setup networking, firewalls (iptables, ufw), and secure VPN connections.</li>
+        <li>Monitor server performance and troubleshoot issues to maximize uptime.</li>
+        <li>Use Docker containers and basic DevOps tools.</li>
+      </ul>
+    </section>
 
-<section>
-  <h2>Projekti</h2>
+    <section id="web">
+      <h2>WEB DEVELOPMENT</h2>
+      <ul>
+        <li>Create responsive websites using HTML5, CSS3, and modern JavaScript (ES6+).</li>
+        <li>Use Flexbox and CSS Grid for professional and adaptable layouts.</li>
+        <li>Integrate contact forms with client-side validation.</li>
+        <li>Optimize SEO and site speed for better user experience.</li>
+        <li>Apply UX/UI principles for usability and impactful design.</li>
+        <li>Deploy websites on Linux servers via FTP/SCP/Git.</li>
+        <li>Utilize CSS frameworks (Bootstrap) and version control (Git).</li>
+      </ul>
+    </section>
 
-  <div class="project">
-    <h3><a href="https://muaythaiartist.github.io/muaythai-camp" target="_blank">Muay Thai Kamp Tajland</a></h3>
-    <p>Landing page za sportski kamp, urađen u Webflow, eksportovan kao statički HTML/CSS.</p>
-    <img src="muaythai-camp.png" alt="Muay Thai Kamp Tajland Screenshot" />
+    <div class="contact">
+      <h2>CONTACT</h2>
+      <a href="jovicpetarteam@gmail.com" target="_blank" rel="noopener noreferrer">Email</a>
+      <a href="https://wa.me/+38640603639" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </div>
   </div>
 
-  <div class="project">
-    <h3><a href="https://muaythaiartist.github.io/portfolio" target="_blank">Lični Portfolio</a></h3>
-    <p>Moj lični portfolio sa prikazom projekata i kontaktnim informacijama.</p>
-    <img src="portfolio-screenshot.png" alt="Portfolio Screenshot" />
-  </div>
-
-</section>
-
-<section class="contact">
-  <h2>Kontakt</h2>
-  <p>Email: <a href="mailto:petar@email.com">jovicpetarteam@email.com</a></p>
-  <p>GitHub: <a href="https://github.com/muaythaiartist" target="_blank">github.com/muaythaiartist</a></p>
-</section>
-
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const sections = document.querySelectorAll('section');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        sections.forEach(s => s.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
 
